@@ -4,7 +4,7 @@
 
 Enhanced by example of strongly typed models.
 
-Model service returns lean objects only to ensure no magic mongoose document methods and properties are present (e.g. when copying the returned mongoose Document via `Object.assign()` or spreading it into another object, see [Common issues with mongoose.Document](##common-issues-with-mongoose.Document)).
+Model service returns lean objects only to ensure no magic mongoose document methods and properties are present (e.g. when copying the returned mongoose Document via `Object.assign()` or spreading it into another object, see [Common issues with mongoose.Document](#common-issues-with-mongoose.Document)).
 
 ## Common issues with mongoose.Document
 

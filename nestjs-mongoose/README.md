@@ -134,10 +134,11 @@ Default population paths can be defined in the entity's model service:
 
 ```
 @Injectable()
-export class AnimalModelService<
-  T extends BaseEntity = Animal,
-> extends AbstractModelService<T> {
-  __defaultPopulationPaths = <const>['owner', 'breeder'];
+export class AnimalModelService extends AbstractModelService<
+  Animal,
+  'owner' | 'breeder'
+> {
+  __defaultPopulationPaths = <const>['owner', 'breeder']; // TODO only define once, maybe infer from KPopulatedPaths ?
 ```
 
 Usage:
@@ -145,7 +146,7 @@ Usage:
 ```
 const animalPopulated = await this.animalModelService.findOneAndPopulate({
       _id: id,
-    }); // animalPopulated is typeof PopulatedDefault<Animal>
+    }); // animalPopulated is typeof Populated<Animal, 'owner' | 'breeder'>
 ```
 
 ## Installation

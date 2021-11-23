@@ -9,7 +9,7 @@ export class AnimalModelService extends AbstractModelService<
   Animal,
   'owner' | 'breeder'
 > {
-  __defaultPopulationPaths = <const>['owner', 'breeder'];
+  __defaultPopulationPaths = <const>['owner', 'breeder']; // TODO only define once, maybe infer from KPopulatedPaths ?
 
   constructor(
     @InjectModel(Animal.name)

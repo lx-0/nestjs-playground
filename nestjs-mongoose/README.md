@@ -124,7 +124,7 @@ raw `animalDoc`:  {
 
 ## Typings of (Aggregate) Paginate V2 Plugins
 
-The typings are not delivered with their npm packages, therefore they have been defined as custom typings in folder `types`.
+The typings of [Aggregate Paginate V2](https://github.com/aravindnc/mongoose-aggregate-paginate-v2) and [Paginate V2](https://github.com/aravindnc/mongoose-paginate-v2) are not delivered with their npm packages, therefore they have been defined as custom typings in folder `types`.
 
 ## Installation
 

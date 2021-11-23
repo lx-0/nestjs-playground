@@ -6,7 +6,6 @@ import {
   AggregatePaginateResult,
   AnyKeys,
   AnyObject,
-  Document,
   FilterQuery,
   HydratedDocument,
   InsertManyOptions,
@@ -23,7 +22,7 @@ import {
   UpdateWriteOpResult,
 } from 'mongoose';
 import { BaseEntity } from './base-entity.class';
-import { PopulatedDefault } from './populated.type';
+import { Populated } from './populated.type';
 
 /**
  * Abstract Model Service.
@@ -32,14 +31,13 @@ import { PopulatedDefault } from './populated.type';
  * @export
  * @abstract
  * @class AbstractModelService
- * @template T The Document interface with reference ids
- * @template U The Document interface with populated references
+ * @template T The entity type
+ * @template {*} tbd
  */
 export abstract class AbstractModelService<
   T extends BaseEntity,
-  D = Document<T['_id'], any, T>,
-  TPopulated = PopulatedDefault<T>,
-  DPopulated = Document<T['_id'], any, TPopulated>,
+  KPopulatedPaths extends keyof T,
+  TPopulated = Populated<T, KPopulatedPaths>,
   // eslint-disable-next-line @typescript-eslint/ban-types
   TQueryHelpers = {},
   // eslint-disable-next-line @typescript-eslint/ban-types
@@ -48,7 +46,7 @@ export abstract class AbstractModelService<
   TVirtuals = {},
 > {
   /**
-   * Default population paths of the standard populated collection version `U` of `T`.
+   * Default population paths of the standard populated collection version `TPopulated` of `T`.
    *
    * @protected
    * @type {Array<PopulateOptions>}
@@ -104,13 +102,11 @@ export abstract class AbstractModelService<
   /**
    *
    *
-   * TODO is template <T> required?
-   *
    * @template T
    * @param {T} doc
    * @return {Promise<TPopulated>}
    */
-  createAndPopulate<T>(doc: T): Promise<TPopulated> {
+  createAndPopulate(doc: T): Promise<TPopulated> {
     return this.model
       .create(doc)
       .then((doc) =>

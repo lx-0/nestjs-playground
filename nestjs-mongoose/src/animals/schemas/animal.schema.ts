@@ -20,8 +20,6 @@ import { AnimalType } from '../entities/animal-type.enum';
  */
 @Schema()
 export class Animal extends BaseEntity {
-  // __defaultPopulationPaths = <const>['owner', 'breeder'];
-
   /**
    * Creates an instance of Animal.
    * Used for setting defaults when instantiating new entity.
@@ -30,7 +28,7 @@ export class Animal extends BaseEntity {
    * @memberof Animal
    */
   constructor(input: Omit<Animal, '_id'>) {
-    super(['owner', 'breeder'] as const);
+    super();
     console.log('### `Animal`.constructor() ###');
     this._id = new mongoose.Types.ObjectId();
     this.name = input.name;
@@ -38,7 +36,6 @@ export class Animal extends BaseEntity {
     this.type = input.type;
     this.foodPlan = { hasBreakfast: false, hasLunch: false, hasDinner: false };
     this.hasWings = false;
-    type x = typeof this.__defaultPopulationPaths[number];
   }
 
   @Prop({ required: true })

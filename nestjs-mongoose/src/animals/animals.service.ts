@@ -51,6 +51,10 @@ export class AnimalsService {
 
     const animalLean = await this.animalModel.findOne({ _id: id }).lean(); // has simple return type `Animal | null`
 
+    const animalPopulated = await this.animalModelService.findOneAndPopulate({
+      _id: id,
+    }); // animalPopulated is typeof PopulatedDefault<Animal>
+
     const animalLeanAlternative2 = animalDoc?.toObject(); // has complex return type
 
     const animalLeanAlternative = animalDoc?.toObject<Animal>(); // has simple return type `Animal | undefined`, but needs generic

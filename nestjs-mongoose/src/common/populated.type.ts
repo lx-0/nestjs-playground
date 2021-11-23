@@ -1,7 +1,7 @@
 import mongoose from 'mongoose';
 import { AnimalType } from 'src/animals/entities/animal-type.enum';
 import { Animal } from 'src/animals/schemas/animal.schema';
-import { BaseEntity } from './base-entity.class';
+import { User } from 'src/users/entities/user.entity';
 
 /**
  * Defines all mongoose.Types.ObjectId union types of object T as objects (populated).
@@ -27,16 +27,19 @@ export type Populated<T, K extends keyof T> = PlainMongoRef<
 > & {
   [P in K]: Exclude<T[P], mongoose.Types.ObjectId[] | mongoose.Types.ObjectId>;
 };
-export type PopulatedDefault<T extends BaseEntity> = Populated<
-  T,
-  T['__defaultPopulationPaths'][number]
->;
+// export type PopulatedDefault<T extends BaseEntity> = Populated<
+//   T,
+//   T['__defaultPopulationPaths'][number]
+// >;
 
-const x: PopulatedDefault<Animal> = {
-  _id: false,
-  owner: new mongoose.Types.ObjectId(),
+const x: Populated<Animal, 'owner' | 'breeder'> = {
+  _id: new mongoose.Types.ObjectId(),
+  name: 'Garfield',
+  hasWings: false,
+  owner: <User>{},
+  // owner: new mongoose.Types.ObjectId(), // throws error
   prevOwner: new mongoose.Types.ObjectId(),
   type: AnimalType.CAT,
   age: 2,
-  missingProp: true, // TODO shall throw error
+  // missingProp: true, // throws error
 };

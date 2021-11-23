@@ -6,6 +6,8 @@ Enhanced by example of strongly typed mongoose models. Mongoose schema generated
 
 Model service `AnimalModelService` returns lean objects only to ensure no magic mongoose document methods and properties are present - e.g. when copying the returned mongoose Document via `Object.assign()` or spreading it into another object, see [Common issues with mongoose.Document](#common-issues-with-mongoosedocument).
 
+Uses custom types to reflect `Populated` and `PopulatedDefault` variants of base entity. Default population paths are defined in the entity's model service.
+
 ## Common issues with mongoose.Document
 
 While using mongoose.Document:
@@ -125,6 +127,26 @@ raw `animalDoc`:  {
 ## Typings of (Aggregate) Paginate V2 Plugins
 
 The typings of [Aggregate Paginate V2](https://github.com/aravindnc/mongoose-aggregate-paginate-v2) and [Paginate V2](https://github.com/aravindnc/mongoose-paginate-v2) are not delivered with their npm packages, therefore they have been defined as custom typings in folder `types`.
+
+## Default population paths
+
+Default population paths can be defined in the entity's model service:
+
+```
+@Injectable()
+export class AnimalModelService<
+  T extends BaseEntity = Animal,
+> extends AbstractModelService<T> {
+  __defaultPopulationPaths = <const>['owner', 'breeder'];
+```
+
+Usage:
+
+```
+const animalPopulated = await this.animalModelService.findOneAndPopulate({
+      _id: id,
+    }); // animalPopulated is typeof PopulatedDefault<Animal>
+```
 
 ## Installation
 

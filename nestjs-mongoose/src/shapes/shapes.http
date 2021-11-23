@@ -1,0 +1,38 @@
+# use this file with VS Code extension 'REST Client'
+@API_URL = http://localhost:3001/shapes
+
+
+
+### GET all
+GET {{API_URL}}
+
+
+### POST one
+POST {{API_URL}}
+Content-Type: application/json
+
+{
+    "name": "My first Shape *(^&%"
+}
+
+### GET one
+GET {{API_URL}}/count
+Content-Type: application/json
+
+### POST two
+POST {{API_URL}}/rectangle
+Content-Type: application/json
+
+{
+    "name": "My first Rectangle Shape"
+}
+
+
+### GET one
+GET {{API_URL}}/rectangle
+Content-Type: application/json
+
+
+### GET one
+GET {{API_URL}}/rectangle/count
+Content-Type: application/json

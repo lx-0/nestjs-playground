@@ -1,0 +1,36 @@
+# use this file with VS Code extension 'REST Client'
+@API_URL = http://localhost:3001/animals
+
+
+
+### GET all
+GET {{API_URL}}
+
+
+### POST one
+POST {{API_URL}}
+Content-Type: application/json
+
+{
+    "name": "My first Animal",
+    "owner": "618d1b230098de2024d3d9e9",
+    "type": "PARROT",
+    "hasWings": true,
+    "age": 99,
+    "bornAt": "Thu Nov 18 2021 14:42:24 GMT+0100 (Central European Standard Time)"
+}
+
+
+### GET one
+GET {{API_URL}}/61962793cb05f6d85bb7b5ca
+Content-Type: application/json
+
+
+### GET one
+GET {{API_URL}}/61962793cb05f6d85bb7b5ca/populated
+Content-Type: application/json
+
+
+### PATCH
+PATCH {{API_URL}}/age/98
+Content-Type: application/json

@@ -1,0 +1,26 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "esModuleInterop": true, // for import mongoose
+    "declaration": true,
+    "removeComments": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "allowSyntheticDefaultImports": true,
+    "target": "es2017",
+    "sourceMap": true,
+    "outDir": "./dist",
+    "baseUrl": "./",
+    "typeRoots": ["./types", "./node_modules/@types"],
+    "incremental": true,
+    "skipLibCheck": true,
+    "strict": true, // enable strict typescript
+    "strictNullChecks": true,
+    "strictPropertyInitialization": false, // included in "strict", required for DTOs
+    "noImplicitAny": true,
+    "strictBindCallApply": true,
+    "forceConsistentCasingInFileNames": true,
+    "noFallthroughCasesInSwitch": true
+  },
+  "exclude": ["node_modules", "dist", "src/migrations", "types"]
+}

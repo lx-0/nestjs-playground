@@ -1,0 +1,34 @@
+{
+    "recommendations": [
+      // * General (Enable Globally)
+      "johnpapa.vscode-peacock",
+      "esbenp.prettier-vscode",
+      "aaron-bond.better-comments",
+      "usernamehw.errorlens",
+      "grimmer.vscode-back-forward-button",
+      "streetsidesoftware.code-spell-checker",
+      "equinusocio.vsc-material-theme",
+      "pkief.material-icon-theme",
+      // * Version Control
+      "eamodio.gitlens",
+      // * Workflow
+      "atlassian.atlascode",
+      "redhat.vscode-yaml",
+      // * Backend
+      "humao.rest-client",
+      // * Frontend
+      // "sibiraj-s.vscode-scss-formatter",
+      // "mrmlnc.vscode-scss",
+      // * TypeScript
+      "dbaeumer.vscode-eslint",
+      "oouo-diogo-perdigao.docthis",
+      // * Node
+      "eg2.vscode-npm-script",
+      "christian-kohler.npm-intellisense",
+      // * NestJs
+      "abhijoybasak.nestjs-files"
+      // * Angular
+      // "angular.ng-template",
+    ],
+    "unwantedRecommendations": []
+  }

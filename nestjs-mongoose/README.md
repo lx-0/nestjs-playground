@@ -4,7 +4,7 @@
 
 Enhanced by example of strongly typed models.
 
-Model service returns lean objects only to ensure no magic mongoose document methods and properties are present (e.g. when copying the returned mongoose Document via `Object.assign()` or spreading it into another object).
+Model service returns lean objects only to ensure no magic mongoose document methods and properties are present (e.g. when copying the returned mongoose Document via `Object.assign()` or spreading it into another object, see [Common issues with mongoose.Document](##common-issues-with-mongoose.Document)).
 
 ## Common issues with mongoose.Document
 
@@ -25,7 +25,7 @@ console.log('raw `animalDoc`: ', animalDoc);
 Result:
 
 ```
-Spreaded `animal`:  {
+Spreaded `animalDoc`:  {
   '$__': InternalCache {
     activePaths: StateMachine {
       paths: [Object],
@@ -68,7 +68,7 @@ Spreaded `animal`:  {
   },
   '$errors': undefined
 }
-Object.assign `animal`:  {
+Object.assign `animalDoc`:  {
   '$__': InternalCache {
     activePaths: StateMachine {
       paths: [Object],
@@ -111,7 +111,7 @@ Object.assign `animal`:  {
   },
   '$errors': undefined
 }
-raw `animal`:  {
+raw `animalDoc`:  {
   foodPlan: { hasBreakfast: false, hasLunch: false, hasDinner: false },
   owner: new ObjectId("618d1b230098de2024d3d9e9"),
   hasWings: false,

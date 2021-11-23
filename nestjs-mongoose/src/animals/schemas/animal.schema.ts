@@ -57,13 +57,13 @@ export class Animal extends BaseEntity {
   hasWings: boolean;
 
   @Prop({ type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true })
-  owner: MongoRef<User>; // ? how to reflect populated / unpopulated state
+  owner: MongoRef<User>; // reflects default unpopulated state
 
   @Prop({ type: mongoose.Schema.Types.ObjectId, ref: 'User' })
-  breeder?: User | mongoose.Types.ObjectId;
+  breeder?: MongoRef<User>; // reflects default unpopulated state
 
   @Prop({ type: mongoose.Schema.Types.ObjectId, ref: 'User' })
-  prevOwner?: User | mongoose.Types.ObjectId;
+  prevOwner?: MongoRef<User>; // reflects default unpopulated state
 
   @Prop({
     type: {

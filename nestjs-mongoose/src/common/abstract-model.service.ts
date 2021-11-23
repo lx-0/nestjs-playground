@@ -49,16 +49,13 @@ export abstract class AbstractModelService<
    * Default population paths of the standard populated collection version `TPopulated` of `T`.
    *
    * @protected
-   * @type {Array<PopulateOptions>}
+   * @type {(PopulateOptions[] | string[])}
    */
-  //   protected defaultPopulationPaths: Array<PopulateOptions>;
-  abstract readonly __defaultPopulationPaths: any;
+  abstract readonly __defaultPopulationPaths: PopulateOptions[] | string[];
 
   constructor(
     private readonly model: Model<T, TQueryHelpers, TMethods, TVirtuals>,
-  ) {
-    // this.__defaultPopulationPaths = [];
-  }
+  ) {}
 
   instanceOfPaginateModel(model: any): model is PaginateModel<T> {
     return model.paginate !== undefined;

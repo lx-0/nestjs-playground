@@ -11,7 +11,7 @@ Model service `AnimalModelService` returns lean objects only to ensure no magic 
 While using mongoose.Document:
 
 ```
-const animalDoc = await this.animalModel.findOne({ _id: id });
+const animalDoc = await this.animalModel.findOne({ _id: id }); // returns mongoose.Document
 ```
 
 The returned object contains magic mongoose methods and properties. When trying to copy the returned object, the magic methods and properties will break the object's structure:

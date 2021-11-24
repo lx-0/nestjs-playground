@@ -1,4 +1,5 @@
 import { Test, TestingModule } from '@nestjs/testing';
+import { RectanglesService } from './rectangles.service';
 import { ShapesController } from './shapes.controller';
 import { ShapesService } from './shapes.service';
 
@@ -8,7 +9,16 @@ describe('ShapesController', () => {
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
       controllers: [ShapesController],
-      providers: [ShapesService],
+      providers: [
+        {
+          provide: ShapesService,
+          useFactory: () => ({}),
+        },
+        {
+          provide: RectanglesService,
+          useFactory: () => ({}),
+        },
+      ],
     }).compile();
 
     controller = module.get<ShapesController>(ShapesController);

@@ -22,7 +22,7 @@ import {
   UpdateWriteOpResult,
 } from 'mongoose';
 import { BaseEntity } from './base-entity.class';
-import { Populated } from './populated.type';
+import { Populated } from './types/populated.type';
 
 /**
  * Abstract Model Service.

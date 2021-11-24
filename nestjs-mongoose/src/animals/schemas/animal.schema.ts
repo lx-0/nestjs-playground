@@ -2,9 +2,9 @@ import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import mongoose from 'mongoose';
 import mongooseAggregatePaginate from 'mongoose-aggregate-paginate-v2';
 import mongoosePaginate from 'mongoose-paginate-v2';
-import { BaseEntity } from 'src/common/base-entity.class';
-import { MongoRef } from 'src/common/mongo-ref.type';
-import { User } from 'src/users/entities/user.entity';
+import { BaseEntity } from '../../common/base-entity.class';
+import { MongoRef } from '../../common/types/mongo-ref.type';
+import { User } from '../../users/entities/user.entity';
 import { AnimalType } from '../entities/animal-type.enum';
 
 /**
@@ -57,13 +57,13 @@ export class Animal extends BaseEntity {
   hasWings: boolean;
 
   @Prop({ type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true })
-  owner: MongoRef<User>; // reflects default unpopulated state
+  owner: MongoRef<User>; // TODO reflects default unpopulated state
 
   @Prop({ type: mongoose.Schema.Types.ObjectId, ref: 'User' })
-  breeder?: MongoRef<User>; // reflects default unpopulated state
+  breeder?: MongoRef<User>; // TODO reflects default unpopulated state
 
   @Prop({ type: mongoose.Schema.Types.ObjectId, ref: 'User' })
-  prevOwner?: MongoRef<User>; // reflects default unpopulated state
+  prevOwner?: MongoRef<User>; // TODO reflects default unpopulated state
 
   @Prop({
     type: {

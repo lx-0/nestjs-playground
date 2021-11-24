@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import mongoose, { LeanDocument } from 'mongoose';
-import { Populated } from 'src/common/populated.type';
+import { Populated } from '../common/types/populated.type';
 import { AnimalModelService } from './animal-model.service';
 import { CreateAnimalDto } from './dto/create-animal.dto';
 import { UpdateAnimalDto } from './dto/update-animal.dto';

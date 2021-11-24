@@ -65,7 +65,7 @@ export class CreateAnimalDto extends OmitType(Animal, ['_id'] as const) {
   //   owner: new mongoose.Types.ObjectId(this.owner), // type conversion from primitive to entity type
   // };
   // }
-  someFunc() {
-    return 'someFunc()';
-  }
+  // someFunc() {
+  //   return 'someFunc()';
+  // }
 }

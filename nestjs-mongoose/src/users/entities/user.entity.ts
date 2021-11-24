@@ -1,5 +1,5 @@
 import mongoose from 'mongoose';
-import { BaseEntity } from 'src/common/base-entity.class';
+import { BaseEntity } from '../../common/base-entity.class';
 
 export interface User extends BaseEntity {
   name: string;

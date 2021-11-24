@@ -11,8 +11,8 @@ import {
   UsePipes,
   ValidationPipe,
 } from '@nestjs/common';
-import { ParseMongoIdPipe } from 'src/common/parse-mongo-id.pipe';
-import { Populated } from 'src/common/populated.type';
+import { ParseMongoIdPipe } from '../common/pipes/parse-mongo-id.pipe';
+import { Populated } from '../common/types/populated.type';
 import { AnimalsService } from './animals.service';
 import { CreateAnimalDto } from './dto/create-animal.dto';
 import { UpdateAnimalDto } from './dto/update-animal.dto';
@@ -33,7 +33,7 @@ export class AnimalsController {
   create(@Body() createAnimalDto: CreateAnimalDto): Promise<Animal> {
     console.log('### DTO ###');
     console.dir(createAnimalDto);
-    console.log(createAnimalDto.someFunc()); // class function is missing on literal objects, therefore ValidationPipe({`transform: true`}) is required to convert plain/literal object to class object. alternative use `plainToClass()`
+    // console.log(createAnimalDto.someFunc()); // class function is missing on literal objects, therefore ValidationPipe({`transform: true`}) is required to convert plain/literal object to class object. alternative use `plainToClass()`
     console.log({
       types: {
         name: typeof createAnimalDto.name,

@@ -1,0 +1,18 @@
+# use this file with VS Code extension 'REST Client'
+@API_URL = http://localhost:3000/users
+
+
+
+### GET all
+GET {{API_URL}}
+
+
+### POST one
+POST {{API_URL}}
+Content-Type: application/json
+
+{
+    "name": "Bruce Willis",
+    "email": "bruce@willis.com",
+    "password": "yippeekiyay"
+}
